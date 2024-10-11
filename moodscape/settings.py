@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-mrtrko4y2whs8t_7%-unwh5xa68s1++ipjp713n!t_a(*7801="
+SECRET_KEY = "48697067836061da31a17be4e85943ced665c456688e902229942ef5a880d100"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -107,24 +107,24 @@ WSGI_APPLICATION = "moodscape.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_db',
-        'USER': 'django',
-        'PASSWORD': 'django',
-        'HOST': 'db',  # Docker Compose service name
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'django_db',
+#         'USER': 'django',
+#         'PASSWORD': 'django',
+#         'HOST': 'db',  # Docker Compose service name
+#         'PORT': '5432',
+#     }
+# }
 
 # AWS and Meshy API settings
 AWS_ACCESS_KEY_ID = 'your-access-key'
