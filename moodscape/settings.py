@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-mrtrko4y2whs8t_7%-unwh5xa68s1++ipjp713n!t_a(*7801=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "moodscapes.onrender.com", "animal-notebooks-reviewing-wines.trycloudflare.com"]
+ALLOWED_HOSTS = ["localhost", "moonscapes-backend.onrender.com", "animal-notebooks-reviewing-wines.trycloudflare.com"]
 
 
 # Application definition
@@ -81,7 +81,7 @@ CORS_ALLOW_HEADERS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://moodscapes.onrender.com",
+    "https://moonscapes-backend.onrender.com",
     "https://animal-notebooks-reviewing-wines.trycloudflare.com",
 ]
 
