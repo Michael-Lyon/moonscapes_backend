@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: django
+      POSTGRES_DB: django_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  web:
+    build:
+      context: .  # Context for building the Dockerfile
+      dockerfile: Dockerfile  # Specify the Dockerfile
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app  # Bind mount the project files, but this is optional if everything is in Dockerfile
+      - media_volume:/app/media  # Persistent volume for media files
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: django
+      POSTGRES_DB: django_db
+      DATABASE_URL: postgres://django:django@db:5432/django_db  # Use db service as host
+      SECRET_KEY: django-insecure-mrtrko4y2whs8t_7%-unwh5xa68s1++ipjp713n!t_a(*7801=  # Add your Django secret key
+      DEBUG: 'True'  # Change this to 'False' in production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  postgres_data:
+  media_volume:
