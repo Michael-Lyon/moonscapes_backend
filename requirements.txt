@@ -1,6 +1,7 @@
 aspose-3d
 asgiref==3.8.1
 Brotli==1.1.0
+gunicorn
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
