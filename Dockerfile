@@ -39,7 +39,7 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 # Run the Django application
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:$PORT"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:1000"]
 
 
 
