@@ -121,7 +121,7 @@ DATABASES = {
         'NAME': 'django_db',
         'USER': 'django',
         'PASSWORD': 'django',
-        'HOST': 'localhost',  # Docker Compose service name
+        'HOST': 'py-db',  # Docker Compose service name
         'PORT': '5432',
     }
 }

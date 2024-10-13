@@ -1,5 +1,5 @@
 services:
-  db:
+  py-db:
     image: postgres:13
     environment:
       POSTGRES_USER: django
@@ -22,7 +22,11 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - py-db
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_EMAIL: admin@example.com
+      DJANGO_SUPERUSER_PASSWORD: testingPygod
 
 volumes:
   postgres_data:
