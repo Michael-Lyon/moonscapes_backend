@@ -38,8 +38,5 @@ COPY . /app/
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
-# Copy the create_superuser script
-COPY create_superuser.py /app/
-
-# Run Django application with migration commands and create superuser
-CMD ["python3", "create_superuser.py", "&&", "python3", "manage.py", "runserver", "0.0.0.0:1000"]
+# Run the Django application
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:1000"]
