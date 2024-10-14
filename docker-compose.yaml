@@ -1,26 +1,14 @@
 version: '3'
 
 services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: django
-      POSTGRES_PASSWORD: django
-      POSTGRES_DB: django_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
   web:
     build: .
     volumes:
       - .:/app
       - media_volume:/app/media
+      - sqlite_data:/app/db  # Persist SQLite data in a volume
     ports:
       - "8000:8000"
-    depends_on:
-      - db
     entrypoint: >
       bash -c "
       python3 manage.py migrate &&
@@ -29,5 +17,5 @@ services:
       "
 
 volumes:
-  postgres_data:
-  media_volume:  # This defines the media volume
+  media_volume:
+  sqlite_data:  # Defines the SQLite data volume

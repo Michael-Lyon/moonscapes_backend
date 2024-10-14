@@ -107,24 +107,24 @@ WSGI_APPLICATION = "moodscape.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_db',
-        'USER': 'django',
-        'PASSWORD': 'django',
-        'HOST': 'db',  # Docker Compose service name
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'django_db',
+#         'USER': 'django',
+#         'PASSWORD': 'django',
+#         'HOST': 'db',  # Docker Compose service name
+#         'PORT': '5432',
+#     }
+# }
 
 # AWS and Meshy API settings
 AWS_ACCESS_KEY_ID = 'your-access-key'
