@@ -173,13 +173,13 @@ class UploadFileView(APIView):
             usdz_file_name = f"Room_{self._generate_random_name()}.usdz"
             json_file_name = f"Room_{self._generate_random_name()}.json"
             thumbnail_file_name = f"RoomThumbnail_{self._generate_random_name()}.png"
-            glb_file_name = f"Room_{self._generate_random_name()}.glb"
+            # glb_file_name = f"Room_{self._generate_random_name()}.glb"
 
             # Define paths to save files
             usdz_file_path = self.ensure_directory_exists('uploads/usdz/', usdz_file_name)
             json_file_path = self.ensure_directory_exists('uploads/json/', json_file_name)
             thumbnail_file_path = self.ensure_directory_exists('uploads/thumbnails/', thumbnail_file_name)
-            glb_file_path = self.ensure_directory_exists('uploads/glb/', glb_file_name)
+            # glb_file_path = self.ensure_directory_exists('uploads/glb/', glb_file_name)
 
             # Save USDZ file
             with open(usdz_file_path, 'wb') as usdz_file:
@@ -199,19 +199,19 @@ class UploadFileView(APIView):
             # Save the files to the model
             file_upload = FileUpload.objects.create(
                 usdz_file=ContentFile(usdz_file_content, usdz_file_name),
-                glb_file=ContentFile(open(glb_file_path, 'rb').read(), glb_file_name),
+                # glb_file=ContentFile(open(glb_file_path, 'rb').read(), glb_file_name),
                 json_file=ContentFile(json_file_content, json_file_name),
                 thumbnail=ContentFile(thumbnail_file_content, thumbnail_file_name)
             )
 
             # Get the URLs of the saved files
             usdz_file_url = request.build_absolute_uri(file_upload.usdz_file.url)
-            glb_file_url = request.build_absolute_uri(file_upload.glb_file.url)
+            # glb_file_url = request.build_absolute_uri(file_upload.glb_file.url)
             thumbnail_url = request.build_absolute_uri(file_upload.thumbnail.url)
 
             data = {
                 "usdz_url": usdz_file_url,
-                "glb_url": glb_file_url,
+                "glb_url": "glb_file_url",
                 "thumbnail_url": thumbnail_url,
             }
             print(data)
