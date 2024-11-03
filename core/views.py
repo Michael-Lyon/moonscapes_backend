@@ -18,7 +18,7 @@ from .serializers import FileUploadSerializer
 import os
 import subprocess
 import base64
-import aspose.threed as a3d
+# import aspose.threed as a3d
 
 
 
@@ -194,7 +194,7 @@ class UploadFileView(APIView):
                 thumbnail_file.write(thumbnail_file_content)
 
             # Convert USDZ to GLB using Aspose.3D
-            self.convert_usdz_to_glb(usdz_file_path, glb_file_path)
+            # self.convert_usdz_to_glb(usdz_file_path, glb_file_path)
 
             # Save the files to the model
             file_upload = FileUpload.objects.create(
@@ -227,15 +227,15 @@ class UploadFileView(APIView):
         return uuid.uuid4().hex
 
     # Function to convert USDZ to GLB using Aspose.3D
-    def convert_usdz_to_glb(self, usdz_path, glb_path):
-        try:
-            # Load the USDZ file via Aspose.3D
-            scene = a3d.Scene.from_file(usdz_path)
-            # Save the scene as GLB format
-            scene.save(glb_path)
-        except Exception as e:
-            print(f"Error converting USDZ to GLB: {e}")
-            raise
+    # def convert_usdz_to_glb(self, usdz_path, glb_path):
+    #     try:
+    #         # Load the USDZ file via Aspose.3D
+    #         scene = a3d.Scene.from_file(usdz_path)
+    #         # Save the scene as GLB format
+    #         scene.save(glb_path)
+    #     except Exception as e:
+    #         print(f"Error converting USDZ to GLB: {e}")
+    #         raise
 
     # Ensure the directory exists, if not, create it
     def ensure_directory_exists(self, relative_path, filename):
