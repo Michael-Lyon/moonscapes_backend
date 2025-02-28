@@ -107,7 +107,7 @@ WSGI_APPLICATION = "moodscape.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # default="postgresql://pygod:VR7I1qnrIMajYpv16AALZS8dyW14m218@dpg-csjh0f23esus7384ud20-a/moodscapes_o1hy"
-        default="postgresql://pygod:VR7I1qnrIMajYpv16AALZS8dyW14m218@dpg-csjh0f23esus7384ud20-a.oregon-postgres.render.com/moodscapes_o1hy"
+        default="postgresql://moodscapes:5KTGsWq6ju62y3XvRtXAUmJLQVKve4b3@dpg-cv0neolsvqrc738tbmf0-a.oregon-postgres.render.com/moodscapes_8gvv"
     )
 }
 
